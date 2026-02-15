@@ -1,4 +1,4 @@
-# lingosavor
+# lingor
 
 A new Flutter project.
 
