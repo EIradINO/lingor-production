@@ -7,6 +7,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import '../services/admob_service.dart';
 import '../widgets/paywall_widget.dart';
+import 'ai_waiting_review_page.dart';
 
 class ConversationPage extends StatefulWidget {
   final String roomId;
@@ -483,12 +484,28 @@ class _ConversationPageState extends State<ConversationPage> {
         // カウント失敗時はスキップ
       }
 
-      // Firebase Functionsを呼び出してAIレスポンスを生成
-      await _callGenerateResponse();
+      setState(() {
+        _isSending = false;
+      });
+
+      // 復習ページへ遷移
+      if (mounted) {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => AiWaitingReviewPage(
+              roomId: widget.roomId,
+              title: widget.title,
+              fromConversation: true,
+            ),
+          ),
+        );
+      }
+
+      // AI応答生成（fire-and-forget）
+      _callGenerateResponse();
 
     } catch (e) {
       _showMessage('❌ メッセージの送信でエラーが発生しました: $e');
-    } finally {
       setState(() {
         _isSending = false;
       });

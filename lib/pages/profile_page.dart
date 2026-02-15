@@ -11,7 +11,7 @@ import '../widgets/my_wordlists_widget.dart';
 import '../widgets/my_dictionary_widget.dart';
 import '../widgets/my_questions_widget.dart';
 import '../widgets/paywall_widget.dart';
-import 'wordlist_subscription_page.dart';
+// import 'wordlist_subscription_page.dart';
 
 // ユーザーデータモデルクラス
 class UserData {
@@ -421,46 +421,46 @@ class _ProfilePageState extends State<ProfilePage> {
                         );
                       },
                     ),
-                    Divider(
-                      height: 1,
-                      color: Colors.grey[200],
-                      indent: 20,
-                      endIndent: 20,
-                    ),
-                    ListTile(
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-                      leading: Icon(
-                        Icons.menu_book,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                      title: const Text(
-                        '市販単語帳の登録',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      subtitle: Text(
-                        '教材解析で使用する単語帳を選択',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey[500],
-                        ),
-                      ),
-                      trailing: Icon(
-                        Icons.arrow_forward_ios,
-                        size: 16,
-                        color: Colors.grey[400],
-                      ),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => WordlistSubscriptionPage(user: widget.user),
-                          ),
-                        );
-                      },
-                    ),
+                    // Divider(
+                    //   height: 1,
+                    //   color: Colors.grey[200],
+                    //   indent: 20,
+                    //   endIndent: 20,
+                    // ),
+                    // ListTile(
+                    //   contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                    //   leading: Icon(
+                    //     Icons.menu_book,
+                    //     color: Theme.of(context).colorScheme.primary,
+                    //   ),
+                    //   title: const Text(
+                    //     '市販単語帳の登録',
+                    //     style: TextStyle(
+                    //       fontSize: 16,
+                    //       fontWeight: FontWeight.w500,
+                    //     ),
+                    //   ),
+                    //   subtitle: Text(
+                    //     '教材解析で使用する単語帳を選択',
+                    //     style: TextStyle(
+                    //       fontSize: 12,
+                    //       color: Colors.grey[500],
+                    //     ),
+                    //   ),
+                    //   trailing: Icon(
+                    //     Icons.arrow_forward_ios,
+                    //     size: 16,
+                    //     color: Colors.grey[400],
+                    //   ),
+                    //   onTap: () {
+                    //     Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //         builder: (context) => WordlistSubscriptionPage(user: widget.user),
+                    //       ),
+                    //     );
+                    //   },
+                    // ),
                   ],
                 ),
               ),

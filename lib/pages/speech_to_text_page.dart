@@ -103,7 +103,7 @@ class _SpeechToTextPageState extends State<SpeechToTextPage> {
         final audioData = audioSnapshot.docs.first.data() as Map<String, dynamic>;
         
         // Storage URLを取得
-        final storage = FirebaseStorage.instanceFor(bucket: 'gs://lingosavor');
+        final storage = FirebaseStorage.instanceFor(bucket: 'gs://lingosavor.firebasestorage.app');
         final originalPath = audioData['original_path'] as String;
         final overlappingPath = audioData['overlapping_path'] as String;
         
@@ -436,7 +436,7 @@ class _SpeechToTextPageState extends State<SpeechToTextPage> {
                           () => _switchToMode(false),
                         ),
                         _buildModeTab(
-                          _overlappingAudioUrl != null ? 'Overlapping' : 'No Audio',
+                          _overlappingAudioUrl != null ? 'Repeating' : 'No Audio',
                           _useOverlappingMode,
                           _overlappingAudioUrl != null ? () => _switchToMode(true) : () {},
                         ),

@@ -289,13 +289,13 @@ class _SavorResultPageState extends State<SavorResultPage> {
                               targetPadding: const EdgeInsets.all(8),
                               child: _buildTabItem(Icons.chat_bubble_outline, '質問', () => _navigateToRoom()),
                             ),
-                            Showcase(
-                              key: _publishedWordsTabKey,
-                              title: '教材',
-                              description: '市販の単語帳に収録されている単語を確認できます',
-                              targetPadding: const EdgeInsets.all(8),
-                              child: _buildTabItem(Icons.menu_book_outlined, '教材', () => _navigateToPublishedWords()),
-                            ),
+                            // Showcase(
+                            //   key: _publishedWordsTabKey,
+                            //   title: '教材',
+                            //   description: '市販の単語帳に収録されている単語を確認できます',
+                            //   targetPadding: const EdgeInsets.all(8),
+                            //   child: _buildTabItem(Icons.menu_book_outlined, '教材', () => _navigateToPublishedWords()),
+                            // ),
                             Showcase(
                               key: _bookmarkTabKey,
                               title: '保存',

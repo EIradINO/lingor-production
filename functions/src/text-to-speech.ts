@@ -151,24 +151,28 @@ async function extractAudioSegment(
 
 // 複数の音声ファイルを連結する関数
 async function concatenateAudioFiles(inputPaths: string[], outputPath: string): Promise<void> {
+  // concat demuxer用のリストファイルを作成
+  const listPath = path.join(os.tmpdir(), `concat_list_${Date.now()}.txt`);
+  const listContent = inputPaths.map(p => `file '${p}'`).join('\n');
+  fs.writeFileSync(listPath, listContent);
+
   return new Promise((resolve, reject) => {
-    const command = ffmpeg();
-    
-    // 各入力ファイルを追加
-    inputPaths.forEach(inputPath => {
-      command.input(inputPath);
-    });
-    
-    command
+    ffmpeg()
+      .input(listPath)
+      .inputOptions(['-f', 'concat', '-safe', '0'])
+      .audioCodec('aac')
+      .audioFrequency(44100)
       .on('end', () => {
         logger.info(`Concatenated ${inputPaths.length} audio files to ${outputPath}`);
+        try { fs.unlinkSync(listPath); } catch (_) { /* ignore */ }
         resolve();
       })
       .on('error', (err: any) => {
         logger.error(`Error concatenating audio files: ${err.message}`);
+        try { fs.unlinkSync(listPath); } catch (_) { /* ignore */ }
         reject(err);
       })
-      .mergeToFile(outputPath, os.tmpdir());
+      .save(outputPath);
   });
 }
 

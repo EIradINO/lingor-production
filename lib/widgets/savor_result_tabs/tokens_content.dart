@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:showcaseview/showcaseview.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../pages/conversation_page.dart';
+import '../../pages/ai_waiting_review_page.dart';
 import '../../pages/word_detail_page.dart';
 import 'selection_bottom_sheet.dart';
 
@@ -672,7 +672,7 @@ class _TokensContentState extends State<TokensContent> {
   Future<void> _navigateToConversation(String roomId, String title) async {
     final result = await Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => ConversationPage(
+        builder: (context) => AiWaitingReviewPage(
           roomId: roomId,
           title: title,
         ),
