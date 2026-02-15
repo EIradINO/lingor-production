@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "789710344718",
+    "project_id": "lingosavor",
+    "storage_bucket": "lingosavor.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789710344718:android:5eb1ac82600d093edee25f",
+        "android_client_info": {
+          "package_name": "com.example.lingosavor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "789710344718-d1p3os7qq3n5cfbcjeb029s93roo56bv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsXho-PBKLFODuE7wuxlgQ_4F2RoPwS3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "789710344718-d1p3os7qq3n5cfbcjeb029s93roo56bv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "789710344718-qjlr67r6ohm9cok475m6an83j4j97utv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.lingosavor"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

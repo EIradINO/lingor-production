@@ -1,0 +1,69 @@
+{
+    "word_list": [
+        {
+            "id": "z1uxbbmWQpaECOO47hpc",
+            "meaning": [
+                "～を特徴づける、～の特性を表す",
+                "～を（特定の性質や特徴を持つものとして）特徴づける、～に～という特徴を与える",
+                "～を（いたずらなどで）からかう、～を面白おかしく描写する"
+            ],
+            "word": "characterize"
+        }
+    
+    ],
+    "grammar_list": [
+        {
+            "room_id": "z1uxbbmWQpaECOO47hpc",
+            "question": "characterizeの意味は？",
+            "options": [
+                "～を特徴づける、～の特性を表す",
+                "～を（特定の性質や特徴を持つものとして）特徴づける、～に～という特徴を与える",
+                "～を（いたずらなどで）からかう",
+                "～を面白おかしく描写する"
+            ],
+            "answer": 0
+        }
+    ],
+    "reading": {
+        "questions": [
+            {
+            "answer": 2,
+            "options": [
+                "To become famous and wealthy.",
+                "To prove the cynics wrong.",
+                "To fulfill his sense of responsibility towards his community.",
+                "To gain experience in project management."
+            ],
+            "question": "What was Kenji's primary motivation for attempting to revitalize the old factory?"
+            }
+        ],
+        "text": "The old factory stood abandoned, a symbol of forgotten dreams. In spite of its dilapidated appearance, young aspiring engineer, Kenji, saw potential. He wanted to revitalize it, bringing jobs back to the struggling town. Many scoffed at his ambition, offering sardonic remarks about his naiveté. \"It's a lost cause,\" they'd say, \"You'll just waste your time and money.\" Nor did they believe in his leadership; they saw him as too young, too inexperienced. However, Kenji possessed an unwavering sense of responsibility towards his community. He felt compelled to act, not for personal gain, but for the collective good. At a town hall meeting, he presented his detailed plan. He spoke forcefully, his voice resonating with passion and conviction, outlining every step and potential benefit. He addressed every skepticism, countering each cynical comment with well-researched facts. His determination slowly started to sway some of the initially resistant residents. He understood that rebuilding trust was as important as rebuilding the factory itself.",
+        "user_impression": null
+    },
+    "listening": {
+        "questions": [
+            {
+                "answer": 2,
+                "options": [
+                    "To become famous and wealthy.",
+                    "To prove the cynics wrong.",
+                    "To fulfill his sense of responsibility towards his community.",
+                    "To gain experience in project management."
+                ],
+                "question": "What was Kenji's primary motivation for attempting to revitalize the old factory?"
+            }
+        ],
+        "text": "The old factory stood abandoned, a symbol of forgotten dreams. In spite of its dilapidated appearance, young aspiring engineer, Kenji, saw potential. He wanted to revitalize it, bringing jobs back to the struggling town. Many scoffed at his ambition, offering sardonic remarks about his naiveté. \"It's a lost cause,\" they'd say, \"You'll just waste your time and money.\" Nor did they believe in his leadership; they saw him as too young, too inexperienced. However, Kenji possessed an unwavering sense of responsibility towards his community. He felt compelled to act, not for personal gain, but for the collective good. At a town hall meeting, he presented his detailed plan. He spoke forcefully, his voice resonating with passion and conviction, outlining every step and potential benefit. He addressed every skepticism, countering each cynical comment with well-researched facts. His determination slowly started to sway some of the initially resistant residents. He understood that rebuilding trust was as important as rebuilding the factory itself.",
+        "audioUrl": "https://firebasestorage.googleapis.com/v0/b/english-daily-tasks.appspot.com/o/audio%2Flistening%2F1.mp3?alt=media&token=1234567890",
+        "user_impression": null
+    },
+    "user_id": "z1uxbbmWQpaECOO47hpc",
+    "isCompleted": ["reading", "listening"],
+    "createdAt": "2025-01-01T00:00:00.000Z",
+    "date": "2025-01-01",
+    "answers": {
+        "grammar": [0,2],
+        "reading": [0,2],
+        "listening": [0,2]
+    }
+}

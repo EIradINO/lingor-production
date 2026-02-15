@@ -1,0 +1,108 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // user_documentsコレクション: ユーザーは自分のドキュメントのみアクセス可能
+    match /user_documents/{document} {
+      allow read, write: if request.auth != null && 
+                         request.auth.uid == resource.data.user_id;
+      allow create: if request.auth != null && 
+                    request.auth.uid == request.resource.data.user_id;
+    }
+    
+    // user_roomsコレクション: ユーザーは自分が作成したroomsのみアクセス可能
+    match /user_rooms/{roomId} {
+      allow read, write: if request.auth != null && 
+                         request.auth.uid == resource.data.user_id;
+      allow create: if request.auth != null && 
+                    request.auth.uid == request.resource.data.user_id;
+    }
+    
+    // messagesコレクション: ユーザーは自分のuser_idを持つメッセージにアクセス可能
+    match /messages/{messageId} {
+      allow read, write: if request.auth != null && 
+                         request.auth.uid == resource.data.user_id;
+      allow create: if request.auth != null && 
+                    request.auth.uid == request.resource.data.user_id;
+    }
+    
+    // user_wordlistsコレクション: ユーザーは自分のワードリストのみアクセス可能
+    match /user_wordlists/{wordlistId} {
+      allow read, write: if request.auth != null && 
+                         request.auth.uid == resource.data.user_id;
+      allow create: if request.auth != null && 
+                    request.auth.uid == request.resource.data.user_id;
+    }
+    
+    // user_wordsコレクション: ユーザーは自分の単語保存履歴のみアクセス可能
+    match /user_words/{userWordId} {
+      allow read, write: if request.auth != null && 
+                         request.auth.uid == resource.data.user_id;
+      allow create: if request.auth != null && 
+                    request.auth.uid == request.resource.data.user_id;
+    }
+    
+    // user_words_sparkedコレクション: ユーザーは自分の炎マーク単語のみアクセス可能
+    match /user_words_sparked/{sparkedId} {
+      allow read, write: if request.auth != null && 
+                         request.auth.uid == resource.data.user_id;
+      allow create: if request.auth != null && 
+                    request.auth.uid == request.resource.data.user_id;
+    }
+    
+    // dictionaryコレクション: readは誰でも可能、saved_usersフィールドのみ書き込みOK
+    match /dictionary/{dictionaryId} {
+      allow read: if true;
+      allow update: if request.resource.data.diff(resource.data).changedKeys().hasOnly(['saved_users']);
+    }
+    
+    // user_audiosコレクション: ユーザーは自分の音声データのみアクセス可能
+    match /user_audios/{audioId} {
+      allow read, write: if request.auth != null && 
+                         request.auth.uid == resource.data.user_id;
+      allow create: if request.auth != null && 
+                    request.auth.uid == request.resource.data.user_id;
+    }
+    
+    // user_tasksコレクション: ユーザーは自分のタスクのみアクセス可能
+    match /user_tasks/{taskId} {
+      allow read, write: if request.auth != null && 
+                         request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && 
+                    request.auth.uid == request.resource.data.userId;
+    }
+    
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    match /subscriptions/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+    }
+
+    match /documents_savor_results/{resultId} {
+      allow read, write: if request.auth != null && request.auth.uid == resource.data.user_id;
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.user_id;
+    }
+    
+    // notificationsコレクション: ユーザーは自分宛の通知のみ読み取り可能、Functions が作成
+    match /notifications/{notificationId} {
+      allow read: if request.auth != null && request.auth.uid == resource.data.userId;
+      allow write: if false; // Firebase Functions のみが作成・更新
+    }
+
+    // published_wordlistsコレクション: 認証済みユーザーは読み取りのみ可能
+    // 書き込みはFirebase Admin SDK（Pythonスクリプト）経由のみ
+    match /published_wordlists/{wordlistId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+
+      // wordsサブコレクション: 認証済みユーザーは読み取りのみ可能
+      match /words/{wordId} {
+        allow read: if request.auth != null;
+        allow write: if false;
+      }
+    }
+  }
+}
